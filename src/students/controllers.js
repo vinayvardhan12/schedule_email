@@ -41,8 +41,8 @@ const createEmail = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-//scheduling a mail for every 30 minutes
-cron.schedule('* * * * *', async () => {
+//scheduling a mail for every 10 minutes
+cron.schedule('*/10 * * * *', async () => {
     try {
         const now = new Date();
         const query = 'SELECT * FROM scheduled_emails WHERE send_at = $1';
